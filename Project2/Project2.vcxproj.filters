@@ -18,12 +18,15 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Project2.cpp">
+    <ClCompile Include="QueueTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

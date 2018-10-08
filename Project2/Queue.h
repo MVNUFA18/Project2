@@ -52,7 +52,7 @@ private:                        // member data
 template <typename E>
 Queue<E>::Queue(int cap) {
 	capacity = cap;
-	queueFront = queueRear = -1;
+	queueFront = queueRear = 0;
 	sizeHolder = 0;
 	Q = new E[capacity];
 }
@@ -60,12 +60,9 @@ Queue<E>::Queue(int cap) {
 
 template <typename E> // push element to the back of the queue
 void Queue<E>::enqueue(const E& e) {
-	if (empty()) {
-		queueFront = 0;
-	}
-	else if (full()) { throw QueueFull("Full queue"); }
-	queueRear = (queueRear + 1) % capacity;
+	if (full()) { throw QueueFull("Full queue"); }
 	Q[queueRear] = e;
+	queueRear = (queueRear + 1) % capacity;
 	sizeHolder++;
 }
 

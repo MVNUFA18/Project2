@@ -17,19 +17,20 @@ int main() {
 	string buyOrSell, junk = "";
 	int numberOfShares, price, temp, total = 0;
 	
+	//infinite loop - break when a stop is issued
 	while (true) {
-		cin >> buyOrSell;
-		if (buyOrSell == "gains" || buyOrSell == "Gains") {
-			string output = "";
+		cin >> buyOrSell;									//grab user input
+		if (buyOrSell == "gains" || buyOrSell == "Gains") { // if the user wants gains: Create a string based on whether or not the total is + or - and Append total.
+			string output = "";								
 			if (total >= 0) { output = "*** Report gain: $"; }
 			else { output = "*** Report loss: $"; }
 			cout << output << total << endl;
-			total = 0;
+			total = 0;									   // resets the total after reporting it
 		}
-		if (buyOrSell == "stop" || buyOrSell == "Stop") {
+		if (buyOrSell == "stop" || buyOrSell == "Stop") { // exits the infinite loop
 			break;
 		}
-		if (buyOrSell == "buy" || buyOrSell == "Buy") {
+		if (buyOrSell == "buy" || buyOrSell == "Buy") {  // loops through and enqueues the price once for each inputted share
 			cin >> numberOfShares >> junk >> price;
 			try {
 				temp = myQueue.size();
@@ -41,7 +42,7 @@ int main() {
 				cout << "Error! Attempted to buy " << numberOfShares << " shares, but there was only room for " << (CAPACITY - temp) << " more shares!" << endl;
 			}
 		}
-		if (buyOrSell == "sell" || buyOrSell == "Sell") {
+		if (buyOrSell == "sell" || buyOrSell == "Sell") { //Sells the front element, adds the result from (price - value of front element) to running total.
 			cin >> numberOfShares >> junk >> price;
 			temp = myQueue.size();
 			try {
